@@ -28,6 +28,13 @@ public interface IBrandCarService {
      */
     BrandCarPojo save(BrandCarPojo brandCarPojo);
 
+    /**
+     * Actualiza una marca de coche
+     * @param brandCarPojoUpdate Marca de coche a actualizar
+     * @return Marca de coche actualizada
+     */
+    Optional <BrandCarPojo> update(BrandCarPojo brandCarPojoUpdate);
+
 
     /**
      * Elimina una marca coche por si Id

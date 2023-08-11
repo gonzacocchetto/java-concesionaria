@@ -46,4 +46,15 @@ public class BrandCarController {
         }
     }
 
+    @PatchMapping
+    public ResponseEntity<BrandCarPojo> update(@RequestBody BrandCarPojo brandCarPojoUpdate) {
+        return ResponseEntity.of(iBrandCarService.update(brandCarPojoUpdate));
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable Long id) {
+        return new ResponseEntity<>(this.iBrandCarService.delete(id) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
+
+    }
+
 }

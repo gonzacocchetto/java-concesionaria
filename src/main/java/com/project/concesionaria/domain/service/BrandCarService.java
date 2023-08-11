@@ -33,13 +33,23 @@ public class BrandCarService implements IBrandCarService {
     }
 
     @Override
-    public boolean delete(Long id) {
-        try {
-            iBrandCarRepository.delete(id);
-            return true;
-        }catch (Exception e){
-            return false;
+    public Optional <BrandCarPojo> update(BrandCarPojo brandCarPojoUpdate) {
+        if (iBrandCarRepository.getBrandCar(brandCarPojoUpdate.getId()).isEmpty()) {
+            return Optional.empty();
+        } else {
+
+            return Optional.of(iBrandCarRepository.save(brandCarPojoUpdate));
         }
 
+    }
+
+    @Override
+    public boolean delete(Long id) {
+       if(iBrandCarRepository.getBrandCar(id).isEmpty()) {
+           return false;
+       } else {
+           iBrandCarRepository.delete(id);
+           return true;
+       }
     }
 }

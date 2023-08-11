@@ -15,7 +15,8 @@ public class BrandCarEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name= "descripcion")
+
+    @JoinColumn(name = "descripcion", insertable = false, updatable = false)
     private String description;
 
 }
