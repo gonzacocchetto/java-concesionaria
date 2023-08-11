@@ -1,6 +1,6 @@
 package com.project.concesionaria.domain.service;
 
-import com.project.concesionaria.domain.pojo.BrandCarPojo;
+import com.project.concesionaria.domain.dto.BrandCarDto;
 import com.project.concesionaria.domain.repository.IBrandCarRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,27 +18,27 @@ public class BrandCarService implements IBrandCarService {
     private final IBrandCarRepository iBrandCarRepository;
 
     @Override
-    public List<BrandCarPojo> getAll() {
+    public List<BrandCarDto> getAll() {
         return iBrandCarRepository.getAll();
     }
 
     @Override
-    public Optional<BrandCarPojo> getBrandCar(Long id) {
+    public Optional<BrandCarDto> getBrandCar(Long id) {
         return iBrandCarRepository.getBrandCar(id);
     }
 
     @Override
-    public BrandCarPojo save(BrandCarPojo brandCarPojo) {
-        return iBrandCarRepository.save(brandCarPojo);
+    public BrandCarDto save(BrandCarDto brandCarDto) {
+        return iBrandCarRepository.save(brandCarDto);
     }
 
     @Override
-    public Optional <BrandCarPojo> update(BrandCarPojo brandCarPojoUpdate) {
-        if (iBrandCarRepository.getBrandCar(brandCarPojoUpdate.getId()).isEmpty()) {
+    public Optional <BrandCarDto> update(BrandCarDto brandCarDtoUpdate) {
+        if (iBrandCarRepository.getBrandCar(brandCarDtoUpdate.getId()).isEmpty()) {
             return Optional.empty();
         } else {
 
-            return Optional.of(iBrandCarRepository.save(brandCarPojoUpdate));
+            return Optional.of(iBrandCarRepository.save(brandCarDtoUpdate));
         }
 
     }

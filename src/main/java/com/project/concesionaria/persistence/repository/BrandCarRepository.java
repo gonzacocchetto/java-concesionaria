@@ -1,6 +1,6 @@
 package com.project.concesionaria.persistence.repository;
 
-import com.project.concesionaria.domain.pojo.BrandCarPojo;
+import com.project.concesionaria.domain.dto.BrandCarDto;
 import com.project.concesionaria.domain.repository.IBrandCarRepository;
 import com.project.concesionaria.persistence.entity.BrandCarEntity;
 import com.project.concesionaria.persistence.mapper.IBrandCarMapper;
@@ -30,18 +30,18 @@ public class BrandCarRepository implements IBrandCarRepository {
 
 
     @Override
-    public List<BrandCarPojo> getAll() {
+    public List<BrandCarDto> getAll() {
         return iBrandCarMapper.toMarcaCochePojo(iBrandCarCrudRepository.findAll());
     }
 
     @Override
-    public Optional<BrandCarPojo> getBrandCar(Long id) {
+    public Optional<BrandCarDto> getBrandCar(Long id) {
         return iBrandCarCrudRepository.findById(id)
                 .map(iBrandCarMapper::mapToMarcaCochePojo);
     }
 
     @Override //Recibo un nuevo pojo(newBrandCar)
-    public BrandCarPojo save(BrandCarPojo newBrandCar) {
+    public BrandCarDto save(BrandCarDto newBrandCar) {
         //Aca lo transformo en una entidad con el mapper y lo guardo en brandCarEntity
        BrandCarEntity brandCarEntity = iBrandCarMapper.mapToMarcaCocheEntity(newBrandCar);
        //Aca lo guardo (iBrandCarCrudRepository.save(brandCarEntity) y lo convierto en pojo (mapToMarcaCochePojo)

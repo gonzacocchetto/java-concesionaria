@@ -1,6 +1,6 @@
 package com.project.concesionaria.controller;
 
-import com.project.concesionaria.domain.pojo.BrandCarPojo;
+import com.project.concesionaria.domain.dto.BrandCarDto;
 import com.project.concesionaria.domain.service.IBrandCarService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -25,21 +25,21 @@ public class BrandCarController {
 
 
     @GetMapping
-    public ResponseEntity<List<BrandCarPojo>> getAll() {
+    public ResponseEntity<List<BrandCarDto>> getAll() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(iBrandCarService.getAll());
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<BrandCarPojo> getBrandCar(@PathVariable Long id) {
+    public ResponseEntity<BrandCarDto> getBrandCar(@PathVariable Long id) {
         return ResponseEntity.of(iBrandCarService.getBrandCar(id));
     }
 
     @PostMapping
-    public ResponseEntity<BrandCarPojo> save(@RequestBody BrandCarPojo brandCarPojo) {
+    public ResponseEntity<BrandCarDto> save(@RequestBody BrandCarDto brandCarDto) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(iBrandCarService.save(brandCarPojo));
+                    .body(iBrandCarService.save(brandCarDto));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(null);
@@ -47,8 +47,8 @@ public class BrandCarController {
     }
 
     @PatchMapping
-    public ResponseEntity<BrandCarPojo> update(@RequestBody BrandCarPojo brandCarPojoUpdate) {
-        return ResponseEntity.of(iBrandCarService.update(brandCarPojoUpdate));
+    public ResponseEntity<BrandCarDto> update(@RequestBody BrandCarDto brandCarDtoUpdate) {
+        return ResponseEntity.of(iBrandCarService.update(brandCarDtoUpdate));
     }
 
     @DeleteMapping(path = "/{id}")
