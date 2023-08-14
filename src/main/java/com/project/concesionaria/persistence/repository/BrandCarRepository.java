@@ -31,22 +31,22 @@ public class BrandCarRepository implements IBrandCarRepository {
 
     @Override
     public List<BrandCarDto> getAll() {
-        return iBrandCarMapper.toMarcaCochePojo(iBrandCarCrudRepository.findAll());
+        return iBrandCarMapper.toMarcaCocheDto(iBrandCarCrudRepository.findAll());
     }
 
     @Override
     public Optional<BrandCarDto> getBrandCar(Long id) {
         return iBrandCarCrudRepository.findById(id)
-                .map(iBrandCarMapper::mapToMarcaCochePojo);
+                .map(iBrandCarMapper::mapToMarcaCocheDto);
     }
 
-    @Override //Recibo un nuevo pojo(newBrandCar)
+    @Override //Recibo un nuevo dto(newBrandCar)
     public BrandCarDto save(BrandCarDto newBrandCar) {
         //Aca lo transformo en una entidad con el mapper y lo guardo en brandCarEntity
        BrandCarEntity brandCarEntity = iBrandCarMapper.mapToMarcaCocheEntity(newBrandCar);
        //Aca lo guardo (iBrandCarCrudRepository.save(brandCarEntity) y lo convierto en pojo (mapToMarcaCochePojo)
-       return iBrandCarMapper.mapToMarcaCochePojo(iBrandCarCrudRepository.save(brandCarEntity));
-       //Finalmente retorno el pojo
+       return iBrandCarMapper.mapToMarcaCocheDto(iBrandCarCrudRepository.save(brandCarEntity));
+       //Finalmente retorno el dto
     }
 
 
