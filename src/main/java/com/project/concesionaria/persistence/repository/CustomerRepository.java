@@ -1,6 +1,7 @@
 package com.project.concesionaria.persistence.repository;
 
 import com.project.concesionaria.domain.dto.CustomerDto;
+import com.project.concesionaria.domain.dto.ResponseCustomerDto;
 import com.project.concesionaria.domain.repository.ICustomerRepository;
 import com.project.concesionaria.persistence.entity.CustomerEntity;
 import com.project.concesionaria.persistence.mapper.ICustomerMapper;
@@ -30,7 +31,7 @@ public class CustomerRepository implements ICustomerRepository {
 
     @Override
     public Optional<CustomerDto> getCustomerByEmail(String email) {
-        return iCustomerCrudRepository.findeByEmail(email).map(iCustomerMapper::mapToCustomerDto);
+        return iCustomerCrudRepository.findByEmail(email).map(iCustomerMapper::mapToCustomerDto);
     }
 
     @Override

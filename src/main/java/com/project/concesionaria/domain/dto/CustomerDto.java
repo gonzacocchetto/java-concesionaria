@@ -13,4 +13,16 @@ public class CustomerDto {
     private Double numberCellphone;
     private Integer active;
     private String password;
+
+    @Override
+    public String toString() {
+        return "CustomerDto{" +
+                "cardId='" + cardId + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
+                ", numberCellphone=" + numberCellphone +
+                ", active=" + active +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }

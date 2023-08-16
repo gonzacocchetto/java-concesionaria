@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.Optional;
 
 public interface ICustomerCrudRepository extends JpaRepository<CustomerEntity, String> {
-
-    Optional<CustomerEntity> findeByEmail(String email);
+    @Query("SELECT c FROM CustomerEntity c WHERE c.email = ?1")
+    Optional<CustomerEntity> findByEmail(String email);
 }

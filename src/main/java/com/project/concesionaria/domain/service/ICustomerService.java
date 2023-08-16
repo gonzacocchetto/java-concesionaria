@@ -1,12 +1,15 @@
-package com.project.concesionaria.domain.repository;
+package com.project.concesionaria.domain.service;
 
 import com.project.concesionaria.domain.dto.CustomerDto;
+import com.project.concesionaria.domain.dto.ResponseCustomerDto;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface ICustomerRepository {
-
+/**
+ * Interface der servicio de cliente
+ */
+public interface ICustomerService {
     /**
      * Devuelve una lista con todas los clientes
      * @return Lista con clientes
@@ -17,7 +20,9 @@ public interface ICustomerRepository {
 
     Optional<CustomerDto> getCustomerByEmail(String email);
 
-    CustomerDto save(CustomerDto newCustomer);
+    ResponseCustomerDto save(CustomerDto customerDto);
 
-    void delete(String cardId);
+    Optional<CustomerDto> update(CustomerDto modifyCustomer);
+
+    boolean delete(String cardId);
 }

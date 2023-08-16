@@ -14,17 +14,21 @@ import lombok.Setter;
 public class CustomerEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "cedula")
     private String cardId;
+
     @Column(name = "nombre_completo")
     private String fullName;
+
     @Column(name = "correo")
     private String email;
+
     @Column(name = "numero_celular")
     private Double numberCellphone;
+
     @Column(name = "activo")
     private Integer active;
+
     @Column(name = "contrasenia")
     private String password;
 }
