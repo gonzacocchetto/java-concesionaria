@@ -29,6 +29,7 @@ public interface IBrandCarMapper {
      * @return Entidad convertida
      */
     @InheritInverseConfiguration
+    @Mapping(target = "carEntities", ignore = true)
     BrandCarEntity mapToMarcaCocheEntity(BrandCarDto marcaPojo);
 
     /**

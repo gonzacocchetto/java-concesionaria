@@ -1,10 +1,11 @@
-package com.project.concesionaria.persistence.repository;
+package com.project.concesionaria.persistence.repository.impl;
 
 import com.project.concesionaria.domain.dto.CustomerDto;
 import com.project.concesionaria.domain.dto.ResponseCustomerDto;
 import com.project.concesionaria.domain.repository.ICustomerRepository;
 import com.project.concesionaria.persistence.entity.CustomerEntity;
 import com.project.concesionaria.persistence.mapper.ICustomerMapper;
+import com.project.concesionaria.persistence.repository.ICustomerCrudRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

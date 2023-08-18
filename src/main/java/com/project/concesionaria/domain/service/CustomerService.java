@@ -3,6 +3,7 @@ package com.project.concesionaria.domain.service;
 import com.project.concesionaria.domain.dto.CustomerDto;
 import com.project.concesionaria.domain.dto.ResponseCustomerDto;
 import com.project.concesionaria.domain.repository.ICustomerRepository;
+import com.project.concesionaria.domain.useCase.ICustomerUseCase;
 import com.project.concesionaria.exception.EmailValidationException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
-public class CustomerService implements ICustomerService{
+public class CustomerService implements ICustomerUseCase {
 
     private final ICustomerRepository iCustomerRepository;
 

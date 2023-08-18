@@ -1,7 +1,7 @@
 package com.project.concesionaria.controller;
 
 import com.project.concesionaria.domain.dto.BrandCarDto;
-import com.project.concesionaria.domain.service.IBrandCarService;
+import com.project.concesionaria.domain.useCase.IBrandCarUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,25 +21,25 @@ public class BrandCarController {
     /**
      * Servicio de marca coche
      */
-    private final IBrandCarService iBrandCarService;
+    private final IBrandCarUseCase iBrandCarUseCase;
 
 
     @GetMapping
     public ResponseEntity<List<BrandCarDto>> getAll() {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(iBrandCarService.getAll());
+                .body(iBrandCarUseCase.getAll());
     }
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<BrandCarDto> getBrandCar(@PathVariable Long id) {
-        return ResponseEntity.of(iBrandCarService.getBrandCar(id));
+        return ResponseEntity.of(iBrandCarUseCase.getBrandCar(id));
     }
 
     @PostMapping
     public ResponseEntity<BrandCarDto> save(@RequestBody BrandCarDto brandCarDto) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(iBrandCarService.save(brandCarDto));
+                    .body(iBrandCarUseCase.save(brandCarDto));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(null);
@@ -48,12 +48,12 @@ public class BrandCarController {
 
     @PatchMapping
     public ResponseEntity<BrandCarDto> update(@RequestBody BrandCarDto brandCarDtoUpdate) {
-        return ResponseEntity.of(iBrandCarService.update(brandCarDtoUpdate));
+        return ResponseEntity.of(iBrandCarUseCase.update(brandCarDtoUpdate));
     }
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable Long id) {
-        return new ResponseEntity<>(this.iBrandCarService.delete(id) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(this.iBrandCarUseCase.delete(id) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
 
     }
 

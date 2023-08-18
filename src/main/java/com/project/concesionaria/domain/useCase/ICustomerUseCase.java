@@ -1,4 +1,4 @@
-package com.project.concesionaria.domain.service;
+package com.project.concesionaria.domain.useCase;
 
 import com.project.concesionaria.domain.dto.CustomerDto;
 import com.project.concesionaria.domain.dto.ResponseCustomerDto;
@@ -9,7 +9,7 @@ import java.util.Optional;
 /**
  * Interface der servicio de cliente
  */
-public interface ICustomerService {
+public interface ICustomerUseCase {
     /**
      * Devuelve una lista con todas los clientes
      * @return Lista con clientes

@@ -1,11 +1,11 @@
-package com.project.concesionaria.domain.service;
+package com.project.concesionaria.domain.useCase;
 
 import com.project.concesionaria.domain.dto.BrandCarDto;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface IBrandCarService {
+public interface IBrandCarUseCase {
 
     /**
      * Devuelve una lista con todas las marcas de coches

@@ -3,8 +3,7 @@ package com.project.concesionaria.domain.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Getter @Setter
 public class CustomerDto {
 
     private String cardId;

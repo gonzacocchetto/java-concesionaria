@@ -1,9 +1,10 @@
-package com.project.concesionaria.persistence.repository;
+package com.project.concesionaria.persistence.repository.impl;
 
 import com.project.concesionaria.domain.dto.BrandCarDto;
 import com.project.concesionaria.domain.repository.IBrandCarRepository;
 import com.project.concesionaria.persistence.entity.BrandCarEntity;
 import com.project.concesionaria.persistence.mapper.IBrandCarMapper;
+import com.project.concesionaria.persistence.repository.IBrandCarCrudRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
