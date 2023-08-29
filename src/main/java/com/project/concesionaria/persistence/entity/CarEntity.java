@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+import java.util.List;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "coche")
 public class CarEntity {
@@ -61,4 +64,9 @@ public class CarEntity {
     @ManyToOne
     @JoinColumn(name = "marca_coche_id", insertable = false, updatable = false)
     private BrandCarEntity brandCarEntity;
+
+    @OneToMany(mappedBy = "carEntity")
+    private List<CarPurchaseEntity> carPurchaseEntity;
+
+
 }

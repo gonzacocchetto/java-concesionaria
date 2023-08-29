@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 /**
  * Entidad de un cliente
  */
@@ -31,4 +33,7 @@ public class CustomerEntity {
 
     @Column(name = "contrasenia")
     private String password;
+
+    @OneToMany(mappedBy = "customerEntity")
+    private List<PurchaseEntity> purchaseEntity;
 }
